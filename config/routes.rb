@@ -38,6 +38,9 @@ Rails.application.routes.draw do
   #     resource :seller
       end
   #   end
+# resources :users do
+#   resources :restaurants
+# end
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
