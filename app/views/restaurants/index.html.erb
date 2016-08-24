@@ -23,4 +23,6 @@
   No restaurants yet
 <% end %>
 
-<br><a href='restaurants/new'>Add a restaurant</a>
+<% if user_signed_in? %>
+<br><br><%= link_to "Add a restaurant", new_restaurant_path %>
+<% end %>

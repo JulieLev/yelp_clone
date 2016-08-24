@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   def new
-    puts params
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
   end
