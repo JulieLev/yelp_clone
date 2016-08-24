@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root "restaurants#index"
+
+  resources :restaurants do
+    resources :reviews
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -32,11 +37,8 @@ Rails.application.routes.draw do
 
   # Example resource route with sub-resources:
   #   resources :products do
-      resources :restaurants do
   #     resources :comments, :sales
-        resources :reviews
   #     resource :seller
-      end
   #   end
 # resources :users do
 #   resources :restaurants
