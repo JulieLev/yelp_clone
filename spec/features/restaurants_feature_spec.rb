@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Restaurants' do
+feature 'Restaurants Feature' do
   context 'no restaurants have been added' do
     scenario 'should display there are no restaurants' do
       visit '/restaurants'
