@@ -1,10 +1,13 @@
+require 'with_user_association_extension'
+
 class User < ActiveRecord::Base
+  include WithUserAssociationExtension
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
-  has_many :restaurants
+  has_many :restaurants, -> { extending WithUserAssociationExtension }
   has_many :reviews
   has_many :reviewed_restaurants, through: :reviews, source: :restaurant
 
