@@ -10,7 +10,7 @@ describe User, type: :model do
     let(:restaurant_params) { {name: 'Diner'} }
 
     subject(:restaurant) {
-    user.restaurants.create_with_user(restaurant_params, user) }
+    restaurants.create_with_user(restaurant_params, user) }
 
     it 'creates a restaurant' do
       expect(restaurant).to be_a Restaurant
