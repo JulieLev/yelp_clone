@@ -1,2 +1,16 @@
 <p><%= @restaurant.name %></p>
 <p><%= @restaurant.description %></p>
+<br>
+<% if @restaurant.reviews.any? %>
+  <% @restaurant.reviews.each do |review| %>
+    <%= review.thoughts %>
+    <%= review.rating %>
+      <% if user_signed_in? && review.user == current_user %>
+        <%= link_to 'Delete Review', restaurant_review_path(@restaurant, review), method: :delete %>
+      <% end %>
+    <br>
+  <% end %>
+<% else %>
+  No reviews yet
+  <br>
+<% end %>
